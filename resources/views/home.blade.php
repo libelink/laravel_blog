@@ -22,8 +22,10 @@
             @endif--}}
 
             <div class="content">
-                <div class="title m-b-md">{{$posts['titre']}}</div>
-                <p>{{$posts['post']}}</p>
+                @foreach($posts as $post)
+                    <div class="title m-b-md">{{$post->title}}</div>
+                    <p>{{$post->content}}</p>
+                @endforeach
             </div>
 
         </div>
