@@ -18,6 +18,12 @@ class CreateArticlesTable extends Migration
             $table->string('title');
             $table->text('content');
             $table->timestamps();
+            $table->unsignedBigInteger('comment_id');
+            $table->foreign('comment_id')
+                ->references('id')
+                ->on('comments')
+                ->onDelete('restrict')
+                ->onUpdate('restrict');
         });
     }
 

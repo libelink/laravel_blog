@@ -21,6 +21,12 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
+            $table->unsignedBigInteger('article_id');
+            $table->foreign('article_id')
+                ->references('id')
+                ->on('articles')
+                ->onDelete('restrict')
+                ->onUpdate('restrict');
         });
     }
 
