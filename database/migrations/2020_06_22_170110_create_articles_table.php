@@ -17,13 +17,12 @@ class CreateArticlesTable extends Migration
             $table->id();
             $table->string('title');
             $table->text('content');
+            $table->unsignedBigInteger('comments_id')->nullable();
             $table->timestamps();
-            $table->unsignedBigInteger('comment_id');
-            $table->foreign('comment_id')
-                ->references('id')
-                ->on('comments')
-                ->onDelete('restrict')
-                ->onUpdate('restrict');
+        });
+
+        Schema::table('articles', function($table) {
+            $table->foreign('comments_id')->references('id')->on('comments');
         });
     }
 
