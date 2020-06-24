@@ -23,7 +23,7 @@
 
             <div class="content">
                 @foreach($posts as $post)
-                    <div class="title m-b-md">{{$post->title}}</div>
+                    <div class="title m-b-md"><a href ="/home/post/{{$post->id}}">{{$post->title}}</a></div>
                     <p>{{$post->content}}</p>
                 @endforeach
             </div>

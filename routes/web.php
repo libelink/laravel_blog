@@ -21,3 +21,5 @@ Auth::routes();
 
 Route::get('/home/login', 'LoginController@index')->name('login');
 
+Route::get('/home/post/{id}', 'PostController@show')->name('Post');
+
