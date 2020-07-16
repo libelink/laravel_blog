@@ -20,12 +20,7 @@ class CreateUsersTable extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
-            $table->unsignedBigInteger('articles_id')->nullable();
             $table->timestamps();
-        });
-
-        Schema::table('users', function($table) {
-            $table->foreign('articles_id')->references('id')->on('articles');
         });
     }
 

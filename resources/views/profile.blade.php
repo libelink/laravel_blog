@@ -7,18 +7,11 @@
 </head>
 <body>
 <div class="flex-center position-ref full-height">
-
-
     <div class="content">
-        <div class="title m-b-md">{{$post->title}}</div>
-        <p>{{$post->content}}</p>
-
-        @foreach($commentss as $comment)
-            <div class="title m-b-md"><a href ="/home/post/{{$comment->id}}">{{$comment->suject}}</a></div>
-            <p>{{$comment->comment}}</p>
-        @endforeach
+        <h1> Hi, {{$user[0]->name}}</h1>
+        <div> name: {{$user[0]->name}}</div>
+        <p> email: {{$user[0]->email}}</p>
     </div>
-
 </div>
 </body>
 </html>

@@ -4,5 +4,27 @@
 // Variables
 @import 'variables';
 
-// Bootstrap
-@import '~bootstrap/scss/bootstrap';
+// Bulma
+@import "~bulma/bulma.sass";
+
+html, body{ height:100%; margin:0; }
+header{ height:50px; margin-bottom: 50px;}
+footer{ height:50px; }
+
+/* Trick */
+body{
+    display:flex;
+    flex-direction:column;
+}
+
+.hero {
+    margin-bottom: 50px;
+}
+
+.container{
+    min-width: 1000px;
+}
+
+.content{ width:1000px;}
+
+footer{ margin-top:50px;}

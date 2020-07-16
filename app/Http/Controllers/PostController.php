@@ -13,24 +13,24 @@ class PostController extends Controller
         $post = Articles::findorfail($id);
         $comments = Comment::where('article_id', $id)->get();
 
-        return view('post')
+        return view('post.post')
             ->with(compact('post'))
             ->with(compact('comments'));
     }
 
     public function create(){
-        return view ('createpost');
+        return view ('post.createpost');
     }
 
     public function edit($id){
         $article = Articles::findorfail($id);
-        return view('editpost',compact('article'));
+        return view('post.editpost',compact('article'));
     }
 
     public function delete($id){
         $post = Articles::findorfail($id);
         $comments = Comment::where('article_id', $id)->get();
-        return view('deletepost')
+        return view('post.deletepost')
             ->with (compact('post'))
             ->with(compact('comments'));
     }

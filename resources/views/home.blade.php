@@ -1,12 +1,17 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>homepage</title>
-    </head>
-    <body>
-        <div class="flex-center position-ref full-height">
+@extends('layouts.layout')
+
+@section('title', 'Page Title')
+
+@section('navbar')
+    @parent
+@endsection
+
+@section('header')
+    @parent
+@endsection
+
+@section('content')
+        <div class="columns">
             {{--@if (Route::has('login'))
                 <div class="top-right links">
                     @auth
@@ -23,11 +28,12 @@
 
             <div class="content">
                 @foreach($posts as $post)
-                    <div class="title m-b-md"><a href ="/home/post/{{$post->id}}">{{$post->title}}</a></div>
+                    <div class="column title"><a href ="{{URL("/home/post/{$post->id}")}}">{{$post->title}}</a></div>
                     <p>{{$post->content}}</p>
                 @endforeach
             </div>
+@endsection
 
-        </div>
-    </body>
-</html>
+@section('footer')
+    @parent
+@endsection

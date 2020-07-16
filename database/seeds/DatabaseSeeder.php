@@ -11,7 +11,12 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $this->call(UserSeeder::class);
+        DB::table('comments')->delete();
+        DB::table('articles')->delete();
+        DB::table('users')->delete();
+
+        $this->call(UserSeeder::class);
         $this->call(ArticleSeeder::class);
+        $this->call(CommentSeeder::class);
     }
 }
