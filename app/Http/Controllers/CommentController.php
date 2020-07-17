@@ -32,6 +32,11 @@ class CommentController extends Controller
      */
     public function store($id)
     {
+        request()->validate([
+            'subject'=>'required',
+            'comment'=>'required'
+        ]);
+
         $article = Articles::findorfail($id);
         $comment=new Comment();
         $comment->subject=request('subject');
@@ -50,6 +55,11 @@ class CommentController extends Controller
      */
     public function update($id)
     {
+        request()->validate([
+            'subject'=>'required',
+            'comment'=>'required'
+        ]);
+
         $comment=Comment::findorfail($id);
         $article_id = $comment->article_id;
         $comment->subject = request('subject');

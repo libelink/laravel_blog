@@ -18,9 +18,9 @@
                 @csrf
                 @method('PUT')
                 <label for="title">Titre : </label><br/>
-                <input type="text" name="subject" class="input" placeholder="Titre" id="title" value="{{$comment->subject}}"> <br/>
+                <input type="text" name="subject" class="input" placeholder="Titre" id="title" value="{{$comment->subject}}" required> <br/>
                 <label for="content">Contenu : </label><br/>
-                <textarea name="comment" class="textarea" placeholder="article" id="content" rows="5" cols="33">{{$comment->comment}}</textarea>
+                <textarea name="comment" class="textarea" placeholder="article" id="content" rows="5" cols="33" required>{{$comment->comment}}</textarea>
                 <input type="submit" value="submit">
             </form>
         </div>

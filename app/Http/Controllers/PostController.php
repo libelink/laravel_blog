@@ -41,28 +41,35 @@ class PostController extends Controller
         //dump(request()->all());
         // possible car on a créé le modèle "articles"
 
+        request()->validate([
+            'title'=>'required',
+            'content'=>'required'
+        ]);
+
         $articles = new Articles();
         $articles->title= request('title');
         $articles->content=request('content');
         $articles->save();
 
         return redirect('/home');
-
     }
 
     public function update($id){
+        request()->validate([
+            'title'=>'required',
+            'content'=>'required'
+        ]);
+
         $article = Articles::findorfail($id);
         $article->title=request('title');
         $article->content=request('content');
         $article->save();
 
         return redirect('/home');
-
-
     }
 
     public function destroy($id){
-        $comments = Comment::where('article_id',$id)->delete();
+        //$comments = Comment::where('article_id',$id)->delete();
         $article = Articles::find($id);
         $article->delete();
 
