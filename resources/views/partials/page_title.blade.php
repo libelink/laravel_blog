@@ -25,6 +25,15 @@ $page = Request::route()->getName();
     @case('editcomment')
         Commentaire
     @break
+    @case('userarticles')
+        Mes articles
+    @break
+    @case('usercomments')
+        Mes commentaires
+    @break
+    @case('userarticles_comments')
+        Commentaires de mes articles
+    @break
     @default
         {{$page}}
 @endswitch

@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Validation\ValidationException;
 use App\articles;
 use App\Comment;
+use Illuminate\Support\Facades\Auth;
 
 class PostController extends Controller
 {
@@ -48,9 +50,13 @@ class PostController extends Controller
 
         $articles = new Articles();
         $articles->title= request('title');
-        $articles->content=request('content');
+        $articles->content= request('content');
+        $articles->user_id= Auth::user()->id;
         $articles->save();
 
+        if(Auth::check()){
+            return redirect()->route('userarticles', $articles->user_id);
+        }
         return redirect('/home');
     }
 

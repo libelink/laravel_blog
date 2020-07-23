@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="columns is-marginless is-centered">
-        <div class="column is-5">
+        <div class="column">
             <div class="card">
                 <header class="card-header">
                     <p class="card-header-title">Login</p>

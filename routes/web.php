@@ -35,10 +35,10 @@ Route::get('/login', 'LogController@index')->name('login');
 Auth::routes();
 
 //Profile
-Route::get('/home/profile/{id}', 'UserController@show')->middleware('auth');
+Route::get('/home/profil/{id}', 'UserController@show')->middleware('auth')->name('profil');
 
 //Posts Routes
-Route::get('/home/post/create','PostController@create')->name('createpost');;
+Route::get('/home/post/create','PostController@create')->middleware('auth')->name('createpost');
 Route::post('/home/post/store','PostController@store')->name('store');
 
 Route::get('/home/post/{id}', 'PostController@show')->name('post');
@@ -55,4 +55,8 @@ Route::get('/home/comment/{id}/edit', 'CommentController@edit')->name('editcomme
 Route::put('/home/comment/{id}', 'CommentController@update');
 Route::delete('/home/comment/{id}', 'CommentController@destroy');
 
+//Profil related routes
+Route::get('/home/profil/{id}/posts', 'UserpostController@index')->middleware('auth')->name('userarticles');
+Route::get('/home/profil/{id}/my_comments', 'UserController@showmycomments')->middleware('auth')->name('usercomments');
+Route::get('/home/profil/{id}/my-articles_comments', 'UserController@showmyarticles_comments')->middleware('auth')->name('userarticles_comments');
 

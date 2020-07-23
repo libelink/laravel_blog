@@ -12493,7 +12493,6 @@ a.has-text-danger-dark:focus {
   padding: 3rem 1.5rem 6rem;
 }
 
-html,
 body {
   height: 100%;
   margin: 0;
@@ -12515,12 +12514,16 @@ body {
   flex-direction: column;
 }
 
+.has-fullheight {
+  min-height: 70vh;
+}
+
 .hero {
   margin-bottom: 50px;
 }
 
-.container {
-  min-width: 1000px;
+.container-with-top-margin {
+  margin-top: 20px;
 }
 
 .content {

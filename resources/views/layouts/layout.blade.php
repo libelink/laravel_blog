@@ -65,9 +65,18 @@
                             </div>
                         @else
                             <div class="navbar-item has-dropdown is-hoverable">
-                            <a class="navbar-link" href="#">{{ Auth::user()->name }}</a>
+                            <a class="navbar-link" href="#">{{ ucfirst(Auth::user()->name) }}</a>
 
                             <div class="navbar-dropdown">
+                                <a class="navbar-item" href="{{ route('profil',auth()->id()) }}"
+                                   onclick="event.preventDefault();document.getElementById('profil').submit();">
+                                    Profil
+                                </a>
+
+                                <form id="profil" action="{{ route('profil',auth()->id()) }}" method="GET"
+                                      style="display: none;">
+                                    {{ csrf_field() }}
+                                </form>
                                 <a class="navbar-item" href="{{ route('logout') }}"
                                    onclick="event.preventDefault();document.getElementById('logout-form').submit();">
                                     Logout

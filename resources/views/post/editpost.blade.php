@@ -18,9 +18,11 @@
             @csrf
             @method('PUT')
             <label for="title">Titre de l'article : </label><br/>
-            <input type="text" name="title" class="input" placeholder="Titre" id="title" value="{{$article->title}}" required > <br/>
+            <input type="text" name="title" class="input @error('title') is-danger @enderror" placeholder="Titre" id="title" value="{{$article->title}}" > <br/>
+            @error('title') <p class="help is-danger">{{$errors->first('title')}}</p>@enderror
             <label for="content">Contenu : </label><br/>
-            <textarea name="content" class="textarea" placeholder="article" id="content" rows="5" cols="33" required >{{$article->content}}</textarea>
+            <textarea name="content" class="textarea @error('title') is-danger @enderror" placeholder="article" id="content" rows="5" cols="33">{{$article->content}}</textarea>
+            @error('content') <p class="help is-danger">{{$errors->first('content')}}</p>@enderror
             <input type="submit" value="submit">
         </form>
     </div>

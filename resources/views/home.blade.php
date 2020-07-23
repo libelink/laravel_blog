@@ -32,6 +32,7 @@
                     <p>{{$post->content}}</p>
                 @endforeach
             </div>
+        </div>
 @endsection
 
 @section('footer')

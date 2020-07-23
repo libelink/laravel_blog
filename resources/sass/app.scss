@@ -7,7 +7,7 @@
 // Bulma
 @import "~bulma/bulma.sass";
 
-html, body{ height:100%; margin:0; }
+body{ height:100%; margin:0; }
 header{ height:50px; margin-bottom: 50px;}
 footer{ height:50px; }
 
@@ -17,12 +17,16 @@ body{
     flex-direction:column;
 }
 
+.has-fullheight{
+    min-height: 70vh;
+}
+
 .hero {
     margin-bottom: 50px;
 }
 
-.container{
-    min-width: 1000px;
+.container-with-top-margin{
+    margin-top:20px;
 }
 
 .content{ width:1000px;}
