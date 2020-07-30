@@ -34,7 +34,7 @@ Route::get('/home', 'PostsController@show')->name('home');
 Route::get('/login', 'LogController@index')->name('login');
 Auth::routes();
 
-//Profile
+//Got to Admin
 Route::get('/home/profil/{id}', 'UserController@show')->middleware('auth')->name('profil');
 
 //Posts Routes
@@ -55,8 +55,9 @@ Route::get('/home/comment/{id}/edit', 'CommentController@edit')->name('editcomme
 Route::put('/home/comment/{id}', 'CommentController@update');
 Route::delete('/home/comment/{id}', 'CommentController@destroy');
 
-//Profil related routes
+//Admin routes routes
 Route::get('/home/profil/{id}/posts', 'UserpostController@index')->middleware('auth')->name('userarticles');
 Route::get('/home/profil/{id}/my_comments', 'UserController@showmycomments')->middleware('auth')->name('usercomments');
 Route::get('/home/profil/{id}/my-articles_comments', 'UserController@showmyarticles_comments')->middleware('auth')->name('userarticles_comments');
-
+Route::get('home/profil/{id}/edit',  'UserController@edit')->middleware('auth')->name('editprofil');
+Route::patch('home/profil/{id}/update',  'UserController@update')->middleware('auth')->name('updateprofil');

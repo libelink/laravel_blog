@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\articles;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\User;
 use App\Comment;
 
@@ -47,6 +48,30 @@ class UserController extends Controller
             ->with(compact('user'))
             ->with(compact('comments'))
             ->with(compact('articles'));
+    }
+
+    public function edit(User $user)
+    {
+        $user = Auth::user();
+        return view('profil.editprofil', compact('user'));
+    }
+
+    public function update(User $user, Request $request)
+    {
+        $user = Auth::user();
+        request()->validate([
+            'name' => 'required',
+            'email' => 'required|email',
+            'password' => 'required|confirmed'
+        ]);
+
+        $user->name = request('name');
+        $user->email = request('email');
+        $user->password = bcrypt(request('password'));
+
+        Auth::user()->save();
+
+        return back();
     }
 
 }
