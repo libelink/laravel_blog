@@ -35,29 +35,29 @@ Route::get('/login', 'LogController@index')->name('login');
 Auth::routes();
 
 //Got to Admin
-Route::get('/home/profil/{id}', 'UserController@show')->middleware('auth')->name('profil');
+Route::get('/home/admin/{id}', 'admin\UserController@show')->middleware('auth')->name('admin');
 
 //Posts Routes
 Route::get('/home/post/create','PostController@create')->middleware('auth')->name('createpost');
-Route::post('/home/post/store','PostController@store')->name('store');
+Route::post('/home/post/store','PostController@store')->middleware('auth')->name('store');
 
 Route::get('/home/post/{id}', 'PostController@show')->name('post');
 
-Route::get('/home/post/{id}/edit','PostController@edit')->name('editpost');;
-Route::put('/home/post/{id}', 'PostController@update')->name('Update');
+Route::get('/home/post/{id}/edit','PostController@edit')->middleware('auth')->name('editpost');;
+Route::put('/home/post/{id}', 'PostController@update')->middleware('auth')->name('Update');
 
-Route::get('/home/post/{id}/delete','PostController@delete');
-Route::delete('/home/post/{id}', 'PostController@destroy')->name('delete');
+Route::get('/home/post/{id}/delete','PostController@delete')->middleware('auth');
+Route::delete('/home/post/{id}', 'PostController@destroy')->middleware('auth')->name('delete');
 
 //Comments Routes
-Route::post('/home/comment/store/{id}', 'CommentController@store');
+Route::post('/home/comment/store/{id}', 'CommentController@store')->middleware('auth');
 Route::get('/home/comment/{id}/edit', 'CommentController@edit')->name('editcomment');
-Route::put('/home/comment/{id}', 'CommentController@update');
-Route::delete('/home/comment/{id}', 'CommentController@destroy');
+Route::put('/home/comment/{id}', 'CommentController@update')->middleware('auth');
+Route::delete('/home/comment/{id}', 'CommentController@destroy')->middleware('auth');
 
 //Admin routes routes
-Route::get('/home/profil/{id}/posts', 'UserpostController@index')->middleware('auth')->name('userarticles');
-Route::get('/home/profil/{id}/my_comments', 'UserController@showmycomments')->middleware('auth')->name('usercomments');
-Route::get('/home/profil/{id}/my-articles_comments', 'UserController@showmyarticles_comments')->middleware('auth')->name('userarticles_comments');
-Route::get('home/profil/{id}/edit',  'UserController@edit')->middleware('auth')->name('editprofil');
-Route::patch('home/profil/{id}/update',  'UserController@update')->middleware('auth')->name('updateprofil');
+Route::get('/home/admin/{id}/posts', 'admin\PostController@index')->middleware('auth')->name('userarticles');
+Route::get('/home/admin/{id}/my_comments', 'admin\UserController@showmycomments')->middleware('auth')->name('usercomments');
+Route::get('/home/admin/{id}/my-articles_comments', 'admin\UserController@showmyarticles_comments')->middleware('auth')->name('userarticles_comments');
+Route::get('home/admin/{id}/edit',  'admin\UserController@edit')->middleware('auth')->name('editprofil');
+Route::patch('home/admin/{id}/update',  'admin\UserController@update')->middleware('auth')->name('updateprofil');

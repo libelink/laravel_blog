@@ -9,7 +9,7 @@
                 </header>
 
                 <div class="card-content">
-                    <form method="POST" class="register-form" action="/home/profil/{{$user->id}}/update">
+                    <form method="POST" class="register-form" action="/home/admin/{{$user->id}}/update">
                         @csrf
                         @method('PATCH')
 
@@ -88,7 +88,7 @@
                             </div>
                         </div>
 
-                        <<div class="field is-horizontal">
+                        <div class="field is-horizontal">
                             <div class="field-label"></div>
 
                             <div class="field-body">

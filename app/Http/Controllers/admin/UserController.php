@@ -1,12 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\admin;
 
+use App\Http\Controllers\Controller;
 use App\articles;
+use App\Comment;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\User;
-use App\Comment;
 
 class UserController extends Controller
 {
@@ -31,7 +32,7 @@ class UserController extends Controller
     public function showmycomments($id){
         $user = User::where('id', $id)->get();
         $comments = Comment::all()->where('user_id', $id);
-        return view('profil.usercomments')
+        return view('admin.usercomments')
             ->with(compact('user'))
             ->with(compact('comments'));
     }
@@ -44,7 +45,7 @@ class UserController extends Controller
             ->join('comments', 'article_id','=', 'articles.id')
             ->where('articles.user_id',$id)
             ->get();
-        return view('profil.userarticles_comments')
+        return view('admin.userarticles_comments')
             ->with(compact('user'))
             ->with(compact('comments'))
             ->with(compact('articles'));
@@ -53,7 +54,7 @@ class UserController extends Controller
     public function edit(User $user)
     {
         $user = Auth::user();
-        return view('profil.editprofil', compact('user'));
+        return view('admin.editprofil', compact('user'));
     }
 
     public function update(User $user, Request $request)

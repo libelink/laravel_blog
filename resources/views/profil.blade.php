@@ -66,12 +66,12 @@
                             <a class="navbar-link" href="#">{{ ucfirst(Auth::user()->name) }}</a>
 
                             <div class="navbar-dropdown">
-                                <a class="navbar-item" href="{{ route('profil',auth()->id()) }}"
-                                   onclick="event.preventDefault();document.getElementById('profil').submit();">
+                                <a class="navbar-item" href="{{ route('admin',auth()->id()) }}"
+                                   onclick="event.preventDefault();document.getElementById('admin').submit();">
                                     Profil
                                 </a>
 
-                                <form id="profil" action="{{ route('profil',auth()->id()) }}" method="GET"
+                                <form id="profil" action="{{ route('admin',auth()->id()) }}" method="GET"
                                       style="display: none;">
                                     {{ csrf_field() }}
                                 </form>

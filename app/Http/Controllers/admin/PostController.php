@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\admin;
 
+use App\Http\Controllers\Controller;
 use App\articles;
 use Illuminate\Http\Request;
 
-class UserpostController extends Controller
+class PostController extends Controller
 {
     /**
      * Display a listing of articles for a specified user
@@ -15,7 +16,7 @@ class UserpostController extends Controller
     public function index($id)
     {
         $articles= Articles::where('user_id',$id)->get();
-        return view('profil.userarticles', compact('articles'));
+        return view('admin.userarticles', compact('articles'));
     }
 
     /**
