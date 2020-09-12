@@ -14,7 +14,7 @@
 @section('content')
     <div class="content columns">
         <div class="column is-three-fifths is-offset-one-fifth">
-            <form method="POST" action="{{url("/home/comment/{$comment->id}")}}">
+            <form method="POST" action="{{url("/home/admin/comment/{$comment->id}")}}">
                 @csrf
                 @method('PUT')
                 <label for="title">Titre : </label><br/>

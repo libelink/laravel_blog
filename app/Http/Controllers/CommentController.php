@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Comment;
-use App\articles;
+use App\Article;
 use Illuminate\Support\Facades\Auth;
 
 class CommentController extends Controller
@@ -41,7 +41,7 @@ class CommentController extends Controller
         $comment=new Comment();
         $comment->subject=request('subject');
         $comment->comment=request('comment');
-        $article=Articles::findorfail($id);
+        $article=Article::findorfail($id);
         $comment->article_id=$article->getKey();
         $comment->user_id= Auth::user()->id;
         $comment->save();

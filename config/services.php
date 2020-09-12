@@ -15,9 +15,9 @@ return [
     */
 
     'mailgun' => [
-        'domain' => env('MAILGUN_DOMAIN'),
-        'secret' => env('MAILGUN_SECRET'),
-        'endpoint' => env('MAILGUN_ENDPOINT', 'api.mailgun.net'),
+        'domain' => env('smtp.mailtrap.io'),
+        'secret' => env('a65173b1-1d5e7924'),
+        'endpoint' => env('api.eu.mailgun.net', 'api.mailgun.net'),
     ],
 
     'postmark' => [

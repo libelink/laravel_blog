@@ -6,13 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Comment extends Model
 {
-    //
-    public function countcomments(){
-       return  $this->count();
+    //un commentaire a un auteur
+    public function user(){
+        return $this->belongsTo('App\User');
     }
 
-    public function CommentsByUser($id){
-        return $this->hasOne('App\Comment', 'article_id' );
+    //un commentaire pour un article
+    public function article(){
+        return $this->belongsTo('App\Article');
     }
-
 }

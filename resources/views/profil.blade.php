@@ -7,11 +7,12 @@
     <title>profile</title>
 </head>
 <body class="has-background-light">
+
 @section('navbar')
     <nav class="navbar" role="navigation" aria-label="main navigation">
         <div class="navbar-brand">
-            <a class="navbar-item" href="https://bulma.io">
-                <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28">
+            <a class="navbar-item" href="/">
+                <h1 class="is-size-3 has-text-weight-bold has-text-primary">BLOG</h1>
             </a>
 
             <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
@@ -23,30 +24,11 @@
 
         <div id="navbarBasicExample" class="navbar-menu">
             <div class="navbar-start">
-                <a class="navbar-item">
-                    Accueil
+                <a class="navbar-item" href="/">
+                    Home
                 </a>
-
-                <div class="navbar-item has-dropdown is-hoverable">
-                    <a class="navbar-link">
-                        A propos
-                    </a>
-
-                    <div class="navbar-dropdown">
-                        <a class="navbar-item">
-                            Présentation
-                        </a>
-                        <a class="navbar-item">
-                            Portfolio
-                        </a>
-                        <hr class="navbar-divider">
-                        <a class="navbar-item">
-                            Télécharger mon CV
-                        </a>
-                    </div>
-                </div>
-                <a class="navbar-item">
-                    Contact
+                <a class="navbar-item" href="/home/apropos">
+                    About
                 </a>
             </div>
 
@@ -71,7 +53,7 @@
                                     Profil
                                 </a>
 
-                                <form id="profil" action="{{ route('admin',auth()->id()) }}" method="GET"
+                                <form id="admin" action="{{ route('admin',auth()->id()) }}" method="GET"
                                       style="display: none;">
                                     {{ csrf_field() }}
                                 </form>
@@ -92,6 +74,7 @@
         </div>
     </nav>
 @show
+
 
 @section('content')
     <div class="container container-with-top-margin">
@@ -192,8 +175,12 @@
                     </div>
                     <div class="tile is-parent">
                         <div class="tile is-child box">
-                            <p class="title">Last article : {{$articles->last()->title}}</p>
-                            <p>{{$articles->last()->content}}</p>
+                            @if (count($articles) > 0)
+                                <p class="title">Last article : {{$articles->last()->title}}</p>
+                                <p>{{$articles->last()->content}}</p>
+                            @else
+                                <h1 class="is-size-3 has-text-centered">Ecrivez votre premier <a href="/home/post/create">article</a>!</h1>
+                            @endif
                         </div>
                     </div>
                 </div>

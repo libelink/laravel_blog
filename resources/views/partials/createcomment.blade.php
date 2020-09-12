@@ -1,14 +1,16 @@
 <div class="content columns">
-    <div class="column is-three-fifths is-offset-one-fifth">
-        <form method="POST" action="{{url("/home/comment/store/{$post->id}")}}">
+    <div class="column is-three-fifths">
+        <form method="POST" action="{{url("/home/admin/comment/store/{$post->id}")}}">
             @csrf
-            <label for="title">Titre : </label><br/>
-            <input type="text" name="subject" class="input @error('subject') is-danger @enderror" placeholder="subject" id="subject"> <br/>
-            @error('subject') <p class="help is-danger">{{$errors->first('subject')}}</p>@enderror
-            <label for="content">Contenu : </label><br/>
-            <textarea name="comment" class="textarea @error('comment') is-danger @enderror" placeholder="comment" id="content" rows="5" cols="33"></textarea>
-            @error('comment') <p class="help is-danger">{{$errors->first('comment')}}</p>@enderror
-            <input type="submit" value="submit">
+            <div class="field is-grouped">
+                <p class="control is-expanded">
+                    <input type="text" name="comment" class="input" @error('comment') is-danger @enderror placeholder="Your comment here..." id="content"/>
+                    @error('comment') <p class="help is-danger">{{$errors->first('comment')}}</p>@enderror
+                </p>
+                <p class="control">
+                    <input type="submit" value="submit">
+                </p>
+            </div>
         </form>
     </div>
 </div>

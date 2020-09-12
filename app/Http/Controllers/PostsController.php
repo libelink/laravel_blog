@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\articles;
+use App\Article;
 use DB;
 
 class PostsController extends Controller
 {
     public function show(){
 
-        $posts = Articles::all();
+        $posts = Article::all();
         /*$posts = DB::table('articles')->get();
         dd($post);
         $post = [

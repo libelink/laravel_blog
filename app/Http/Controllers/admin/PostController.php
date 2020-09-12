@@ -3,7 +3,8 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
-use App\articles;
+use App\Article;
+use App\User;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -15,7 +16,8 @@ class PostController extends Controller
      */
     public function index($id)
     {
-        $articles= Articles::where('user_id',$id)->get();
+        $articles=User::find($id)->articles;
+        //$articles= Article::where('user_id',$id)->get();
         return view('admin.userarticles', compact('articles'));
     }
 

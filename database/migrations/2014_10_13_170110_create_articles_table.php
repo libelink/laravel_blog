@@ -17,12 +17,7 @@ class CreateArticlesTable extends Migration
             $table->id();
             $table->string('title');
             $table->text('content');
-            $table->unsignedBigInteger('user_id')->nullable();
             $table->timestamps();
-        });
-
-        Schema::table('articles', function($table) {
-            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 

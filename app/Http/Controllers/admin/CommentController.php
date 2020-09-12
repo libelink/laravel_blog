@@ -4,7 +4,7 @@ namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use App\Comment;
-use App\articles;
+use App\Article;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -24,6 +24,7 @@ class CommentController extends Controller
      */
     public function edit($id)
     {
+
         $comment=Comment::findorfail($id);
         return view('partials.editcomment',compact('comment'));
     }
@@ -35,14 +36,12 @@ class CommentController extends Controller
     public function store($id)
     {
         request()->validate([
-            'subject'=>'required',
             'comment'=>'required'
         ]);
 
         $comment=new Comment();
-        $comment->subject=request('subject');
         $comment->comment=request('comment');
-        $article=Articles::findorfail($id);
+        $article=Article::findorfail($id);
         $comment->article_id=$article->getKey();
         $comment->user_id= Auth::user()->id;
         $comment->save();
@@ -58,13 +57,11 @@ class CommentController extends Controller
     public function update($id)
     {
         request()->validate([
-            'subject'=>'required',
             'comment'=>'required'
         ]);
 
         $comment=Comment::findorfail($id);
         $article_id = $comment->article_id;
-        $comment->subject = request('subject');
         $comment->comment = request('comment');
         $comment -> save();
         return redirect()->route('post', ['id' => $article_id]);
