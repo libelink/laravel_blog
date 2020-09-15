@@ -1,4 +1,5 @@
-# Laravel Blog 
+# Laravel Blog
+ 
 
 Laravel Blog is a simple blog interface, build with laravel.
 
