@@ -14,7 +14,7 @@
 @section('content')
 <div class="content columns">
     <div class="column">
-        <form method="POST" action="{{url('/home/post/store')}}">
+        <form method="POST" action="{{url('/home/admin/post/store')}}">
             @csrf
             <label for="title">Titre de l'article : </label><br/>
             <input type="text"  class="input @error('title') is-danger @enderror" name="title" placeholder="Titre" id="title"> <br/>

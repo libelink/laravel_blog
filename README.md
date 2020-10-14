@@ -1,6 +1,5 @@
 # Laravel Blog
  
-
 Laravel Blog is a simple blog interface, build with laravel.
 
  This application is for testing only. It has been build to test laravel possibilities, and has not been implemented in production.

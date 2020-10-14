@@ -31,6 +31,13 @@ class ProfilController extends Controller
             ->with(compact('articles'));
     }
 
+    public function showposts(){
+        $posts = Article::all();
+        return view('post.posts',[
+            'posts' => $posts
+        ]);
+    }
+
     public function showmycomments($id){
         $user = User::where('id', $id)->get();
         $comments = Comment::all()->where('user_id', $id);

@@ -1,24 +1,11 @@
-@extends('layouts.app')
-
-@section('title', 'Page Title')
-
-@section('header')
-    @parent
-
-@section('content')
-<section class="hero is-medium is-primary is-bold">
-    <div class="hero-body">
-        <div class="container">
-            <h1 class="title">
-                Primary bold title
-            </h1>
-            <h2 class="subtitle">
-                Primary bold subtitle
-            </h2>
-        </div>
-    </div>
-</section>
-@endsection
-
 @section('footer')
-    @parent
+    <footer class="footer">
+        <div class="content has-text-centered">
+            <p>
+                <strong>A Laravel Blog</strong> by <a href="">A BERTON</a>. The source code is licensed
+                <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. The website content
+                is licensed <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY NC SA 4.0</a>.
+            </p>
+        </div>
+    </footer>
+@show

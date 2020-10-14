@@ -14,9 +14,9 @@
 @section('content')
 <div class="content columns">
     <div class="column is-three-fifths is-offset-one-fifth">
-        <form method="POST" action="/home/post/{{$article->id}}">
+        <form method="POST" action="{{ route('updatearticle',$article->id) }}">
             @csrf
-            @method('PUT')
+            @method('PATCH')
             <label for="title">Titre de l'article : </label><br/>
             <input type="text" name="title" class="input @error('title') is-danger @enderror" placeholder="Titre" id="title" value="{{$article->title}}" > <br/>
             @error('title') <p class="help is-danger">{{$errors->first('title')}}</p>@enderror

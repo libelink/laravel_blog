@@ -1,6 +1,6 @@
 <div class="content columns">
     <div class="column is-three-fifths">
-        <form method="POST" action="{{url("/home/admin/comment/store/{$post->id}")}}">
+        <form method="POST" action="{{url("/home/admin/comment/{$post->id}/store")}}">
             @csrf
             <div class="field is-grouped">
                 <p class="control is-expanded">

@@ -22,9 +22,15 @@ class CommentController extends Controller
      * @param $id
      * @return redirect
      */
-    public function edit($id)
+    public function show($id)
     {
 
+        $comment=Comment::findorfail($id);
+        return view('partials.showcomment',compact('comment'));
+    }
+
+    public function edit($id)
+    {
         $comment=Comment::findorfail($id);
         return view('partials.editcomment',compact('comment'));
     }
@@ -46,7 +52,7 @@ class CommentController extends Controller
         $comment->user_id= Auth::user()->id;
         $comment->save();
 
-        return redirect()->route('post', ['id' => $article->getKey()]);
+        return redirect()->route('userarticle', ['post_id' => $id]);
     }
 
     /**
@@ -64,7 +70,7 @@ class CommentController extends Controller
         $article_id = $comment->article_id;
         $comment->comment = request('comment');
         $comment -> save();
-        return redirect()->route('post', ['id' => $article_id]);
+        return redirect()->route('userarticle', ['post_id' => $article_id]);
     }
 
     /**
@@ -79,6 +85,6 @@ class CommentController extends Controller
         $article_id = $comment->article_id;
         $comment->delete();
 
-        return redirect()->route('post', ['id' => $article_id]);
+        return redirect()->route('userarticle', ['post_id' => $article_id]);
     }
 }

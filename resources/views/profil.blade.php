@@ -11,7 +11,7 @@
 @section('navbar')
     <nav class="navbar" role="navigation" aria-label="main navigation">
         <div class="navbar-brand">
-            <a class="navbar-item" href="/">
+            <a class="navbar-item" href="/home/admin/posts">
                 <h1 class="is-size-3 has-text-weight-bold has-text-primary">BLOG</h1>
             </a>
 
@@ -24,7 +24,7 @@
 
         <div id="navbarBasicExample" class="navbar-menu">
             <div class="navbar-start">
-                <a class="navbar-item" href="/">
+                <a class="navbar-item" href="/home/admin/posts">
                     Home
                 </a>
                 <a class="navbar-item" href="/home/apropos">
@@ -113,7 +113,7 @@
                                     {{ csrf_field() }}
                                 </form>
                             </li>
-                            <li><a href="/home/post/create">Créer article</a></li>
+                            <li><a href="/home/admin/post/create">Créer article</a></li>
                         </ul>
                         <p class="menu-label">
                             Commentaires
@@ -179,7 +179,7 @@
                                 <p class="title">Last article : {{$articles->last()->title}}</p>
                                 <p>{{$articles->last()->content}}</p>
                             @else
-                                <h1 class="is-size-3 has-text-centered">Ecrivez votre premier <a href="/home/post/create">article</a>!</h1>
+                                <h1 class="is-size-3 has-text-centered">Ecrivez votre premier <a href="/home/admin/post/create">article</a>!</h1>
                             @endif
                         </div>
                     </div>
