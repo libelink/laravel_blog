@@ -28,7 +28,7 @@
 
             <div class="content">
                 @foreach($posts as $post)
-                    <div class="column title"><a href ="{{URL("/home/post/{$post->id}")}}">{{$post->title}}</a></div>
+                    <div class="column title no-padding-left"><a href ="{{URL("/home/post/{$post->id}")}}">{{$post->title}}</a></div>
                     <p>{{$post->content}}</p>
                 @endforeach
             </div>

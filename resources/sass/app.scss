@@ -1,8 +1,29 @@
 // Fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito');
+@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 
 // Variables
 @import 'variables';
+
+//colors
+$teagreen: #C2D8B9;
+$nyanza: #8DB67C;
+$floralwhite: #FFFCF7;
+$wildblueyonder: #A1B5D8;
+$slategrey: #738290;
+
+$primary: $teagreen;
+$link: $nyanza;
+$info: $wildblueyonder;
+
+//General
+body, button, input, select, textarea, p{
+    font-family: "Montserrat", sans-serif
+}
+
+.title, .subtitle , h1, h2, h3, h4, h5, h6{
+    font-family: "Raleway", sans-serif !important;
+}
 
 // Bulma
 @import "~bulma/bulma.sass";
@@ -12,7 +33,7 @@ header{ height:50px; margin-bottom: 50px;}
 footer{ height:50px; }
 
 /* Trick */
-body{
+body, button, input, select, textarea{
     display:flex;
     flex-direction:column;
 }
@@ -21,15 +42,21 @@ body{
     min-height: 70vh;
 }
 
+.no-padding-left{
+    padding-left:0;
+}
+
 .hero {
     margin-bottom: 50px;
+}
+
+.hero-body{
+    background-image: url("../../img/sea.jpg");
 }
 
 .container-with-top-margin{
     margin-top:20px;
 }
-
-
 
 //.content{ width:1000px;}
 

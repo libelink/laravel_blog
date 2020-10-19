@@ -14,7 +14,7 @@
     <div class="columns">
         <div class="content">
             @foreach($comments as $comment)
-                <div class="column title">Article : {{$comment->article->id}}, Titre : {{$comment->article->title}}</div>
+                <div class="column title no-padding-left">Article : {{$comment->article->id}}, Titre : {{$comment->article->title}}</div>
                 <p>Commentaire : {{$comment->comment}}</p>
             @endforeach
         </div>

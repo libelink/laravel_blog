@@ -14,7 +14,7 @@
     <div class="columns">
         <div class="content">
             @foreach($articles as $article)
-                <div class="column title"><a href ="{{URL("/home/admin/post/{$article->id}/post")}}">{{$article->title}}</a></div>
+                <div class="column title no-padding-left"><a href ="{{URL("/home/admin/post/{$article->id}/post")}}">{{$article->title}}</a></div>
                 <div>
                     <a class="" href="{{ route('editarticle',$article->id)}}"
                        onclick="event.preventDefault();document.getElementById('editpost').submit();">
